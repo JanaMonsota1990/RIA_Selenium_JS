@@ -1,0 +1,17 @@
+{
+  "name": "selenium-pom-project",
+  "version": "1.0.0",
+  "description": "UI automation with JavaScript, Selenium WebDriver, Mocha and Page Object Model",
+  "scripts": {
+    "test": "mocha"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "selenium-webdriver": "^4.25.0"
+  },
+  "devDependencies": {
+    "chai": "^4.5.0",
+    "dotenv": "^16.4.5",
+    "mocha": "^10.7.3"
+  }
+}
