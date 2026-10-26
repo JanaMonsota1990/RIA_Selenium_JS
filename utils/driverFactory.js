@@ -6,6 +6,9 @@ const config = require('../config/config');
 async function createDriver() {
   const chromeOptions = new chrome.Options();
   const firefoxOptions = new firefox.Options();
+  chromeOptions.addArguments('--lang=en-US');
+  chromeOptions.setUserPreferences({ 'intl.accept_languages': 'en-US,en' });
+  firefoxOptions.setPreference('intl.accept_languages', 'en-US, en');
   if (config.headless) {
     chromeOptions.addArguments('--headless=new');
     firefoxOptions.addArguments('-headless');
