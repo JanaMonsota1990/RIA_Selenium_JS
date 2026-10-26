@@ -11,8 +11,9 @@ describe('Ria Login', function () {
     await this.driver.wait(async () => riaLoginPage.isCookieBannerClosed(), 10000);
     expect(await riaLoginPage.isCookieBannerClosed()).to.equal(true);
 
+    expect(await riaLoginPage.isRegisterLinkDisplayed()).to.equal(true); //"Register" link is present
     expect(await riaLoginPage.isPhoneOrEmailFieldDisplayed()).to.equal(true); //"Phone or email" field is present
     expect(await riaLoginPage.isPasswordFieldDisplayed()).to.equal(true); //"Password" field is present
-    expect(await riaLoginPage.isRegisterLinkDisplayed()).to.equal(true); //"Register" link is present
+    
   });
 });

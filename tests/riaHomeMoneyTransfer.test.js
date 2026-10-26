@@ -61,7 +61,7 @@ describe('Ria Money Transfer', function () {
     const amountToBefore = await riaHomePage.getAmountTo();
     await riaHomePage.setAmountFrom('....,,,,...,,,,.'); //set ammount with non numerical characters
     
-    await this.driver.sleep(3000);
+    //await this.driver.sleep(3000);
    
     expect(await riaHomePage.getAmountFrom()).to.equal('....,,,,...,,,,.');//should appear a error message?
     expect(await riaHomePage.getAmountTo()).to.equal(amountToBefore);
@@ -71,7 +71,7 @@ describe('Ria Money Transfer', function () {
     await this.driver.wait(async () => (await riaHomePage.getReceiveCurrency()) === 'HTG', 10000);
     expect(await riaHomePage.getReceiveCurrency()).to.equal('HTG');//verify the receiver currency is HTG
     
-    await this.driver.sleep(3000);
+    //await this.driver.sleep(3000);
   });
 
   

@@ -32,7 +32,12 @@ class RiaLoginPage extends BasePage {
   async isCookieBannerClosed() {
     const buttons = await this.driver.findElements(this.allowAllCookies);
     for (const button of buttons) {
-      if (await button.isDisplayed()) return false;
+      try {
+        if (await button.isDisplayed()) return false;
+      } catch (error) {
+        // The banner was removed from the DOM while we were checking it.
+        if (error.name !== 'StaleElementReferenceError') throw error;
+      }
     }
     return true;
   }
