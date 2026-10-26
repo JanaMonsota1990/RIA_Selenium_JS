@@ -24,9 +24,12 @@ describe('Ria Money Transfer', function () {
 
     expect((await riaHomePage.getAmountFrom()).replace(/,/g, '')).to.equal('25000');//verifica que el envio sea 25000
 
+    const amountToBefore = await riaHomePage.getAmountTo();
     await riaHomePage.selectDestination('Haiti', 'HTG');//set the receiver country
     await this.driver.wait(async () => (await riaHomePage.getReceiveCurrency()) === 'HTG', 10000);
     expect(await riaHomePage.getReceiveCurrency()).to.equal('HTG');//verify the receiver currency is HTG
+    await this.driver.wait(async () => (await riaHomePage.getAmountTo()) !== amountToBefore, 10000);
+    expect(await riaHomePage.getAmountTo()).to.not.equal(amountToBefore);//verify the receiver amount changed with the currency
     
     //await this.driver.sleep(3000);
   });
